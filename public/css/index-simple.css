@@ -1,0 +1,51 @@
+html {
+    overflow-y: auto;
+}
+
+.profile-wrapper {
+    padding: 3vw 0 3vw 2vw;
+    position: relative;
+}
+
+.profile-wrapper:after {    
+    content: "";
+    position: absolute;
+    /* The last underline (if white AKA) blends with the footer color, so consider changing it */
+        /* #B3DCD1 is not the best color choice visually speaking */
+    background: #B3DCD1;
+    height: 3px;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    transition: 450ms;
+}
+
+/* For simulataneous focus and hover events */
+.profile-wrapper-active:after {
+    width: 100%;
+}
+
+.profile-wrapper:hover:after { 
+    width: 100%; 
+}
+
+.profile-name {
+    font-size: clamp(12px, 6vw, 48px);
+    letter-spacing: 0.15vw;
+}
+
+#profiles-container {
+    text-align: start !important;
+}
+
+.profile-link-group-a > .profile-link {
+    border-width: 3px;
+    min-width: fit-content;
+    width: 25vw;
+    max-width: 200px;
+    margin-right: calc(10vw / 3);
+}
+
+.link-a {
+        font-size: clamp(10px, 4vw, 24px) !important;
+}
