@@ -1,0 +1,213 @@
+/********* VARIABLES ********/
+:root {
+    --header-height: 48px;
+    --footer-height: 80px;
+    --footer-option-height: 30px;
+    --edit-color: #92a8d1;
+    --view-color: #c5b9cd;
+    --delete-color: #f7cac9;
+    --accent-color: #b3dcd1;
+}
+
+html {
+    overflow-y: hidden;
+    overflow-x: hidden;
+}
+
+body {
+    background-color: black;
+}
+
+main {
+    padding-bottom: var(--footer-height);
+}
+
+body *:not(.navbar *) {
+    text-transform: uppercase;
+}
+
+main * {
+    color: white !important;
+}
+
+/***** Switch Button *****/
+
+#switch-button-group > button {
+    background-color: transparent !important;
+    border-width: 5px;
+}
+
+#switch-list-view {
+    border-color: black rgb(194, 194, 194) rgb(194, 194, 194) black;
+}
+
+.rainbow-box {
+    border-image-slice: 1;
+    border-image-source: linear-gradient(
+        to left,
+        #f7cac9,
+        #dec2cb,
+        #c5b9cd,
+        #abb1cf,
+        #92a8d1
+    );
+}
+
+.rainbow-box:active:focus {
+    filter: brightness(0.85);
+}
+
+.fineprint {
+    display: block;
+    font-size: 8px;
+}
+
+/***** Body Content *****/
+
+#profiles-container {
+    padding-left: 0;
+}
+
+.profile-wrapper {
+    list-style: none;
+    padding: calc((100vh + var(--footer-height) + var(--footer-option-height) + var(--header-height)) / 2) 0;
+}
+
+.profile-name {
+    background-color: transparent;
+    border: none;
+    font-weight: 600;
+    font-size: 8vw;
+    text-decoration: none;
+    padding: 0;
+    letter-spacing: 0.5vw;
+}
+
+
+/* Profile Links */
+
+.profile-link-group-a > .profile-link {
+    border-radius: 0;
+    border-width: 5px;
+    border-style: solid;
+    transition: 825ms;
+    /* Consider adding a max-width for visual purposes */
+    width: calc(80vw / 3);
+    /* margin: auto; */
+}
+
+.colored-profile-link {
+    background-color: white;
+    color: black !important;
+    border-color: #e05656 !important;
+    box-shadow: 0 0 10px #d80808 !important;
+    transition: 450ms;
+}
+
+.colored-parent {
+    background-color: white;
+    border-color: #e05656 !important;
+    box-shadow: 0 0 10px #d80808 !important;
+    transition: 450ms;
+}
+
+.colored-child {
+    color: black !important;
+    transition: 450ms;
+    border: none;
+    box-shadow: none;
+}
+
+.form-link-a {
+    border: none;
+    box-shadow: none;
+}
+
+.form-link-a:hover, .form-link-a:focus {
+    box-shadow: none !important;
+    border: none !important;
+}
+
+.profile-edit-link {
+    border-color: var(--edit-color);
+    box-shadow: 0 0 10px #7695cd;
+}
+
+.profile-view-link {
+    border-color: var(--view-color);
+    box-shadow: 0 0 10px #b88ed4;
+}
+
+.profile-delete-link {
+    border-color: var(--delete-color);
+    box-shadow: 0 0 10px #fca5a3;
+}
+
+/***** Scroll Button *****/
+
+#navigation-button-group {
+    margin-bottom: var(--footer-height);
+}
+
+#navigation-button-group * {
+    border-radius: 3px;
+}
+
+#profile-select {
+    font-size: calc(12px + 1vw);
+}
+
+.navigation-next {
+    background-color: rgba(139, 138, 138, 0.5);
+    color: rgb(186, 184, 184);
+    border: 3px solid transparent;
+    border-top-right-radius: 0 !important;
+    border-bottom-right-radius: 0 !important;
+    transform: rotate(90deg) translate(15%, 0);
+    margin: 0 0.5vw;
+    font-size: calc(10px + 1vw);
+}
+
+/* There is an error where it adds an extra outline on mouseclick while focused on via keyboard  */
+.navigation-next:active {
+    border-color: white;
+}
+
+#profile-select {
+    margin: 0 7.5px;
+    bottom: 100%;
+}
+
+/***** Footer *****/
+
+footer {
+    height: var(--footer-height);
+}
+
+/***** Pagination *****/
+    /* Has a lag in color change. Consider adding in dedicated pagination css file */
+
+.pagination * {
+    color: black;
+}
+
+.page-link:focus {
+    color: var(--accent-color);
+    box-shadow: 0 0 0 3px rgba(179, 220, 209, 0.5);
+}
+
+.pagination > .active > .page-link {
+    background-color: var(--accent-color);
+    border-color: var(--accent-color);
+}
+
+/* Consider making "button" sizes even */
+@media (max-width: 425px) {
+    .page-item:not(.button) * {
+        display: none;
+    }
+
+#switch-button-group > button {
+        font-size: 10px;
+    }
+}

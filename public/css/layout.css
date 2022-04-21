@@ -1,0 +1,85 @@
+:root {
+    --header-height: 48px;
+    --footer-height: 80px;
+}
+
+html {
+    background-color: black;
+}
+
+main {
+    margin-top: var(--header-height);
+    color: white;
+}
+
+body {
+    font-family: "Andale Mono", monospace, "Courier New", monospace;
+    font-variant: small-caps;
+    background-color: black;
+}
+
+#disabled-link:hover,
+#disabled-link:focus,
+#disabled-link:active {
+    cursor: default;
+}
+
+#tooltip {
+    position: fixed;
+    display: block;
+    visibility: hidden;
+    font-size: clamp(10px, 16px);
+    background: rgba(49, 49, 49, 0.95);
+    border-radius: 0.3rem;
+    padding: 2px 12px;
+    right: 1vw;
+    color: white;
+}
+
+.visible {
+    visibility: visible !important;
+}
+
+.nav-link {
+    padding: 0 !important;
+}
+
+nav {
+    flex: 1;
+    text-transform: uppercase;
+    height: 48px;
+}
+
+.navbar-toggler {
+    font-size: 14px;
+}
+
+.navbar-toggler:focus {
+    box-shadow: 0 0 0 0.25rem rgba(179, 220, 209, 0.8) !important;
+}
+
+.nav-link:hover {
+    color: #b3dcd1;
+}
+
+/***** Scrollbar *****/
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+::-webkit-scrollbar-thumb {
+    /* Consider playing with image brightness and/or colors -> it's a bit dark */
+    background-image: linear-gradient(
+        to bottom,
+        #f7cac9,
+        #dec2cb,
+        #c5b9cd,
+        #abb1cf,
+        #92a8d1
+    );
+    border-radius: 12%;
+}
+
+::-webkit-scrollbar-track {
+    background: white;
+}
