@@ -1,8 +1,3 @@
-main {
-    overflow-y: hidden;
-    overflow-x: hidden;
-}
-
 .h1 {
     font-variant: small-caps
 }
@@ -13,7 +8,6 @@ body {
 
 main {
     padding: 10px 10vw;
-    height: calc(100vh - 48px)
 }
 
 address {
@@ -38,10 +32,38 @@ address > div {
     }
 }
 
+.slide {
+    animation-duration: 2.25s;
+    animation-name: button-slidein;
+}
+
+@keyframes button-slidein {
+    from {
+        margin-left: 100%;
+    }
+
+    to {
+        margin-left: 0%;
+    }
+}
+
 .info {
     font-size: calc(12px + 0.5vw);
     padding: 3px 15px;
     width: fit-content;
     border: 1px solid white;
-    
+}
+
+.label {
+    margin-top: 1rem;
+}
+
+#link-edit {
+    background-color: white;
+    margin-bottom: 30px;
+}
+
+#link-edit:hover, #link-edit:focus {
+    color: #b3dcd1;
+    box-shadow: 0 0 0 0.25rem rgba(179, 220, 209, 0.8) !important;
 }

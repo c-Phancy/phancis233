@@ -4,9 +4,11 @@ namespace Database\Seeders;
 
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
+use \App\Models\User;
 use \App\Models\Profile;
+use \App\Models\Handle;
 
-class ProfileSeeder extends Seeder
+class UserSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -15,7 +17,8 @@ class ProfileSeeder extends Seeder
      */
     public function run()
     {
-        Profile::query()->delete();
-        Profile::factory()->count(60)->create();
+        User::factory()->count(50)->create()->each(function($user) {
+            Profile::factory()->has(Handle::factory()->count(rand(0, 7)))->create(['user_id' => $user->id]);
+        });
     }
 }

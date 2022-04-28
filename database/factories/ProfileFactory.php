@@ -18,7 +18,6 @@ class ProfileFactory extends Factory
     {
         $firstName = strtolower($this->faker->firstName());
         $lastName = strtolower($this->faker->lastName());
-        $email = 
         $phone = preg_replace('/[^0-9]/', '', $this->faker->phoneNumber());
         return [
             'first_name' => ucfirst($firstName),

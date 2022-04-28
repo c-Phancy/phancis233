@@ -4,6 +4,7 @@ namespace Database\Seeders;
 
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Facades\DB;
 
 class DatabaseSeeder extends Seeder
 {
@@ -14,6 +15,10 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        $this->call(ProfileSeeder::class);
+        DB::table('users')->truncate();
+        DB::table('profiles')->truncate();
+        DB::table('handles')->truncate();
+
+        $this->call(UserSeeder::class);
     }
 }

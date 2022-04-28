@@ -15,7 +15,7 @@
 </head>
 
 <body>
-    <header class="fixed-top d-flex">
+    <header class="sticky-top d-flex">
         @yield('header')
         <nav class="navbar navbar-light text-end align-items-center d-flex justify-content-end py-2 pe-3 bg-light">
             <ul class="navbar-nav d-flex flex-row ms-auto bg-light">
