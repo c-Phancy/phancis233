@@ -29,3 +29,37 @@ Create a new Github repository named: <lastname>cis233, ie. blakecis233
 add/invite me as a collaborator
 Add your laravel application to the repository
 Create a Pull Request and add me as a reviewer
+
+
+
+
+-----------------------
+
+
+
+
+Basic Table Relationships Assignment
+Objectives
+
+Get familiar with relating multiple tables together using Eloquent Model.
+
+ 
+
+Specifications
+
+Create a branch called basic-table-relationships
+Write the migrations and Eloquent Model code necessary for these items
+Setup a User has_one Profile relationship and also the inverse
+Setup a Profile has_many Handle (use fields that I did in my lecture) relationship and also inverse
+On the profile show page - list the handle information for the profile (make it look better than what I did in my lecture :) )
+if no handles then show a message saying so
+Update your Profile seed to generate users with profiles and profiles with handles.
+Some profiles should not have handles (to test your view logic) 
+This may be the more complicated part of the assignment as you should be able to run this over and over without polluting your data and also dynamically associate the records together.
+Remember to delete all users, profiles, and handles before you run the seed
+ 
+
+Submission
+
+Push branch to Github
+Create a Pull Request and request me as a reviewer

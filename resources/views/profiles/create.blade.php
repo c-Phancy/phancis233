@@ -32,8 +32,8 @@
     <div class="text-center text-md-start px-5">
         @include('profiles/form')
     </div>
-    <div id="button-group" class="px-5 mb-5 mb-md-0 d-flex flex-column justify-content-center align-items-center">
-        <button type="submit" class="btn bg-light bg-light mx-4 mx-md-0 my-md-4" id="submit-button">Create Profile</button>
+    <div id="button-group" class="px-5 px-md-0 mb-5 mb-md-0 d-flex flex-column justify-content-center align-items-center">
+        <button type="submit" class="btn bg-light mx-4 mx-md-0 my-md-4" id="submit-button">Create Profile</button>
         <a href="{{ route('profiles.index') }}" class="btn bg-light mx-4 mt-2 mt-md-0 mx-md-0 my-md-4"
             type="button">Cancel</a>
     </div>

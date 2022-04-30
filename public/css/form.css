@@ -3,7 +3,7 @@
 }
 
 .form {
-    height: 80vh;
+    width: fit-content;
 }
 
 .form-control,
@@ -17,11 +17,13 @@
     border-color: #b3dcd1;
 }
 
-.form {
-    width: fit-content;
+
+.input-group-single {
+    border-top-right-radius: 0.25rem !important;
+    border-bottom-right-radius: 0.25rem !important;
 }
 
-#email-group > input:first-of-type {
+#email-group>input:first-of-type {
     width: 50%;
 }
 
@@ -30,12 +32,6 @@
     word-wrap: break-word;
     border: 1px solid #b3dcd1;
     font-variant: normal;
-}
-
-#domain {
-    border-top-right-radius: 4px;
-    border-bottom-right-radius: 4px;
-    width: 0;
 }
 
 input::-webkit-outer-spin-button,
@@ -54,28 +50,34 @@ input[type="number"] {
 }
 
 @media (max-width: 767px) {
-    #email-group > input:first-of-type {
-        width: 15%;
-    }
-    #button-group > .btn {
+
+    #button-group>.btn {
         font-size: 14px;
     }
 }
 
 /***** Create/Edit Button Group *****/
 
-#button-group > .btn {
+#button-group>.btn {
     text-transform: uppercase;
     min-width: fit-content;
     width: calc(150px + 0.25vw);
 }
 
-#button-group > .btn:hover {
+#button-group>.btn:hover {
     color: #b3dcd1;
 }
 
-#button-group > .btn:focus, #toast-button:focus {
+#button-group>.btn:focus,
+#toast-button:focus {
     box-shadow: 0 0 0 0.25rem rgba(179, 220, 209, 0.8) !important;
+}
+
+/***** Add/Remove Button Group *****/
+
+.account-buttons > .btn {
+    width: 60%;
+    max-width: 250px;
 }
 
 /***** Toast *****/

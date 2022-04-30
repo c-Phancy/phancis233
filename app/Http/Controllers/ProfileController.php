@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+// use \App\Http\Requests\StorePostRequest;
 
 class ProfileController extends Controller
 {
@@ -36,7 +37,19 @@ class ProfileController extends Controller
      */
     public function store(Request $request)
     {
+        $addAccounts = [];
+        if (array_key_exists('social', $this->validatedData($request))) {
+            $socials = $request->input('social');
+            $handles = $request->input('handle');
+            foreach ($socials as $key => $social) {
+                $newAccount = $this->newHandle($social, $handles[$key]);
+                $addAccounts[] = $newAccount;
+            }
+        }
         \App\Models\Profile::create($this->validatedData($request));
+        foreach ($addAccounts as $account) {
+            $account->profile()->associate(\App\Models\Profile::all()->last())->save();
+        }
         return redirect()->route('profiles.index')->with('success', 'Profile was created successfully!');
     }
 
@@ -74,9 +87,30 @@ class ProfileController extends Controller
     public function update(Request $request, $id)
     {
         \App\Models\Profile::find($id)->update($this->validatedData($request));
+        // It is allegedly more efficient to delete and recreate for one-to-many relationships
+            // Look into this more -> maybe add an identifying key to match handle's original id?
+        
+        // delete
+        $oldAccounts = \App\Models\Profile::find($id)->handles;
+        foreach ($oldAccounts as $account) {
+            $account->delete();
+        }
+
+        // create
+        if (array_key_exists('social', $this->validatedData($request))) {
+            $socials = $request->input('social');
+            $handles = $request->input('handle');
+        foreach ($socials as $key => $social) {
+            $newAccount = $this->newHandle($social, $handles[$key]);
+            $newAccount->profile()->associate(\App\Models\Profile::find($id))->save();
+        }
+        // KNOWN BUG
+            // If an account has its fields blank but not removed from the page and another account has a validation error, 
+            //the blank account WILL NOT automatically delete like it should
+        }
         // Check if it is possible to redirect the route to the last page in the index (Where the new profile is put)
         return redirect()->route('profiles.index')->with('success', 'Profile was updated successfully!');
-    }
+    }  
 
     /**
      * Remove the specified resource from storage.
@@ -87,6 +121,7 @@ class ProfileController extends Controller
     public function destroy($id)
     {
         $profile = \App\Models\Profile::find($id);
+        $profile->handles()->delete();
         $profile->delete();
 
         return redirect()->route('profiles.index')->with('success', 'Profile was deleted.');
@@ -96,20 +131,16 @@ class ProfileController extends Controller
 
     private function validatedData($request) {
 
-        $email = $request->input('email').'@'.$request->input('domain');
-
-        $request->merge([
-            'email' => $email
-        ]);
-
         $validatedData = $request->validate([
             'first-name' => 'required',
             'last-name' => 'required',
             // Faker will fail DNS validation if |email is used
                 // add in unique when free
             'email' => 'required|email',
-            'phone' => 'required|integer'
-        ]);
+            'phone' => 'required|integer',
+            'social.*' => 'sometimes|required',
+            'handle.*' => 'sometimes|required'
+            ]);
 
         // Is concatenation possible in the validation? Or array_map() / function?
         $validatedData['first_name'] = $validatedData["first-name"];
@@ -120,5 +151,12 @@ class ProfileController extends Controller
         unset($validatedData['phone']);
 
         return $validatedData;
+    }
+
+    private function newHandle($social, $name) {
+        $newAccount = new \App\Models\Handle;
+        $newAccount->social_name = $social;
+        $newAccount->name = $name;
+        return $newAccount;
     }
 }
