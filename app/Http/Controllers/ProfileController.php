@@ -25,6 +25,7 @@ class ProfileController extends Controller
      */
     public function create()
     {
+        // New profiles are NOT assigned a User nor is a new User created for it
         $profile = new \App\Models\Profile;
         return view('profiles.create', ['profile' => $profile]);
     }
