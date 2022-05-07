@@ -63,3 +63,38 @@ Submission
 
 Push branch to Github
 Create a Pull Request and request me as a reviewer
+
+
+
+
+-----------------------
+
+
+
+
+Writing Seeds Assignment
+Fix the seeds from your last assignment. Make sure you verify in Tinker that they work.
+
+$user = $someHandle->profile->user;
+
+$user->profile
+
+$user->profile->handles
+
+* If you already implemented seeds correctly then you have nothing to do and will receive full credit on this assignment.
+
+Extra Credit (15 points):
+
+Write or rewrite your seeds using factories.
+
+https://laravel.com/docs/9.x/seeding#using-model-factories (Links to an external site.)
+
+This is extra credit so not required. You must do your own research to implement.
+
+* If you already implemented seed factories in your previous assignment then you will receive extra credit on this assignment.
+
+ 
+
+Submission
+
+Feel free to update branch/PR from last assignment. Re-request me as a reviewer.
