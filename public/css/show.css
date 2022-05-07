@@ -15,7 +15,7 @@ address {
 
 }
 
-address > div {
+.slide  {
     animation-duration: 2.25s;
     animation-name: slidein;
 }
@@ -29,21 +29,6 @@ address > div {
     to {
         margin-left: 0%;
         width: 100%;
-    }
-}
-
-.slide {
-    animation-duration: 2.25s;
-    animation-name: button-slidein;
-}
-
-@keyframes button-slidein {
-    from {
-        margin-left: 100%;
-    }
-
-    to {
-        margin-left: 0%;
     }
 }
 
