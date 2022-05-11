@@ -15,10 +15,16 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
+        // truncate() wipes the database clean and starts ids from 1
+        // Use query()->delete() to keep id records
         DB::table('users')->truncate();
         DB::table('profiles')->truncate();
         DB::table('handles')->truncate();
 
-        $this->call(UserSeeder::class);
+        $this->call([
+            UserSeeder::class,
+            ProfileSeeder::class,
+            HandleSeeder::class
+        ]);
     }
 }
