@@ -12,6 +12,6 @@ class Group extends Model
         protected $fillable = ['name'];
 
         public function profiles() {
-            return $this->belongsToMany(Profile::class);
+            return $this->belongsToMany(Profile::class)->withTimestamps();
         }
 }

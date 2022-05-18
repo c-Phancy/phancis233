@@ -20,11 +20,13 @@ class DatabaseSeeder extends Seeder
         DB::table('users')->truncate();
         DB::table('profiles')->truncate();
         DB::table('handles')->truncate();
+        DB::table('groups')->truncate();
 
         $this->call([
             UserSeeder::class,
             ProfileSeeder::class,
-            HandleSeeder::class
+            HandleSeeder::class,
+            GroupSeeder::class
         ]);
     }
 }
