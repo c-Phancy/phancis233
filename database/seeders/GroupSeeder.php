@@ -21,9 +21,11 @@ class GroupSeeder extends Seeder
         $profileCount = count(Profile::all());
         $assignProfiles = Profile::all()->random(rand($profileCount - 30, $profileCount - 10));
         
-        Group::factory()->count(rand(2, 20))->create()->each(function($group) use(&$assignProfiles) {
+        // 6 ensures pagination
+        Group::factory()->count(rand(6, 20))->create()->each(function($group) use(&$assignProfiles) {
             // Some Groups may have 0 Profiles
-            $addProfiles = $assignProfiles->random(rand(0, count($assignProfiles)));
+            // Guarantees first group has 0 profiles (for assignment purposes)
+            $addProfiles = ($group->id === 1) ? collect([]) : $assignProfiles->random(rand(0, count($assignProfiles)));
             $group->profiles()->attach($addProfiles->pluck('id')->toArray());
         });
     }
