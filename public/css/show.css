@@ -39,16 +39,22 @@ address {
     border: 1px solid white;
 }
 
+.group-info:hover {
+    border-color: #b3dcd1 !important;
+    transition-duration: 250ms;
+    font-size: calc(18px + 0.5vw);
+}
+
 .label {
     margin-top: 1rem;
 }
 
-#link-edit {
+#link-edit, .go-to-btn {
     background-color: white;
     margin-bottom: 30px;
 }
 
-#link-edit:hover, #link-edit:focus {
+#link-edit:hover, #link-edit:focus, .dropdown-btn:hover, .dropdown-btn:focus, .go-to-btn:hover, .go-to-btn:focus {
     color: #b3dcd1;
     box-shadow: 0 0 0 0.25rem rgba(179, 220, 209, 0.8) !important;
 }

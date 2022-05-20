@@ -62,15 +62,19 @@
         @if($groups->count() > 0)
             <ul class="list-unstyled d-flex flex-column align-items-center align-items-md-start">
                 @foreach($groups as $group)
-                    <li class="info my-1">{{ $group->name }}</li>
+                    <li class="info my-1 group-info"><a class="w-100 text-decoration-none text-white" href="{{ route('groups.show', $group->id) }}">{{ $group->name }}</a></li>
                 @endforeach
             </ul>
         @else 
-        <div class="fst-italic">{{ $profile->first_name }} {{ $profile->last_name }} hasn't joined any yet.<span class="d-block">Check back later!</span></div>
+        <div class="fst-italic">{{ $profile->first_name }} {{ $profile->last_name }} hasn't joined any groups yet.<span class="d-block">Check back later!</span></div>
         @endif
     </div>
 </address>
 <div class="slide d-flex justify-content-center justify-content-md-start">
     <a class="btn" id="link-edit"
     href="{{ route('profiles.edit', $profile->id ) }}">Edit Profile</a>
+@endsection
+
+@section('js')
+<script src="{{ asset('js/show.js') }}"></script>
 @endsection
