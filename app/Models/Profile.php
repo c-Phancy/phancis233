@@ -18,4 +18,8 @@ class Profile extends Model
     public function handles() {
         return $this->hasMany(Handle::class);
     }
+
+    public function groups() {
+        return $this->belongsToMany(Group::class)->withTimestamps();
+    }
 }

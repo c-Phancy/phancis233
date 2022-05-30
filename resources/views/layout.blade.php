@@ -21,7 +21,12 @@
             <ul class="navbar-nav d-flex flex-row ms-auto bg-light">
                 <div>
                 <li class="nav-item px-3">
-                    <a class="nav-link" href="{{ route('profiles.index') }}">Home</a>
+                    <a class="nav-link" href="{{ route('profiles.index') }}">Profiles</a>
+                </li>
+                </div>
+                <div>
+                <li class="nav-item px-3">
+                    <a class="nav-link" href="{{ route('groups.index') }}">Groups</a>
                 </li>
                 </div>
                 <div>
