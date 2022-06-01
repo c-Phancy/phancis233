@@ -29,7 +29,7 @@ class AssociateProfilesAndGroupsSeeder extends Seeder
 
             if ($random) {
                 // Get random Group Ids to assign
-                $assignedGroupIds = $groupsIds->slice(0, $random);
+                $assignedGroupIds = $groupsIds->shuffle()->slice(0, $random);
 
                 // Insert Group-Profile association
                 foreach($assignedGroupIds as $groupId) {

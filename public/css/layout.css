@@ -82,3 +82,28 @@ nav {
 ::-webkit-scrollbar-track {
     background: white;
 }
+
+.dashboard-border {
+    background: linear-gradient(to right, #f7cac9, #c5b9cd, #92a8d1, #b3dcd1);
+}
+
+.dashboard-link {
+    color: black;
+}
+
+.dashboard-link-white {
+    color: white;
+}
+
+.dashboard-link:hover, a.block:hover {
+    color: #72ac9c;
+    transition-duration: 250ms;
+}
+
+.dashboard-nav:hover {
+    border-color: white !important;
+}
+
+.dashboard-nav:active, .dashboard-nav:focus {
+    border-color: #72ac9c !important;
+}

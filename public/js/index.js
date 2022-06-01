@@ -367,3 +367,8 @@ profileSelect.addEventListener("change", () => {
         }
     }
 });
+
+// Lazy!!! way to configure Profile index for dashboard
+window.onload(
+    ecoButton.dispatchEvent(new Event("click"))
+)

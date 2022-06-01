@@ -6,14 +6,6 @@ body {
     font-variant: normal !important;
 }
 
-main {
-    padding: 10px 10vw;
-}
-
-address {
-    height: 100%;
-
-}
 
 .slide  {
     animation-duration: 2.25s;
@@ -50,8 +42,8 @@ address {
 }
 
 #link-edit, .go-to-btn {
-    background-color: white;
-    margin-bottom: 30px;
+    background-color: white !important;
+    margin-bottom: 30px !important;
 }
 
 #link-edit:hover, #link-edit:focus, .dropdown-btn:hover, .dropdown-btn:focus, .go-to-btn:hover, .go-to-btn:focus {

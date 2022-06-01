@@ -17,13 +17,12 @@
     border-color: #b3dcd1;
 }
 
-
 .input-group-single {
     border-top-right-radius: 0.25rem !important;
     border-bottom-right-radius: 0.25rem !important;
 }
 
-#email-group>input:first-of-type {
+#email-group > input:first-of-type {
     width: 50%;
 }
 
@@ -32,6 +31,8 @@
     word-wrap: break-word;
     border: 1px solid #b3dcd1;
     font-variant: normal;
+    border-bottom-left-radius: 0.25rem !important;
+    border-bottom-right-radius: 0.25rem !important;
 }
 
 input::-webkit-outer-spin-button,
@@ -49,26 +50,27 @@ input[type="number"] {
     border-bottom-right-radius: 0 !important;
 }
 
-@media (max-width: 767px) {
+/* TODO: add a class that fixes the button and span bottom-left-radius when expanded span */
 
-    #button-group>.btn {
+@media (max-width: 767px) {
+    #button-group > .btn {
         font-size: 14px;
     }
 }
 
 /***** Create/Edit Button Group *****/
 
-#button-group>.btn {
+#button-group > .btn {
     text-transform: uppercase;
     min-width: fit-content;
     width: calc(150px + 0.25vw);
 }
 
-#button-group>.btn:hover {
+#button-group > .btn:hover {
     color: #b3dcd1;
 }
 
-#button-group>.btn:focus,
+#button-group > .btn:focus,
 #toast-button:focus {
     box-shadow: 0 0 0 0.25rem rgba(179, 220, 209, 0.8) !important;
 }
