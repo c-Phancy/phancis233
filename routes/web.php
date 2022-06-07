@@ -19,5 +19,11 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::resource('profiles', ProfileController::class);
-Route::resource('groups', GroupController::class);
+Route::resource('profiles', ProfileController::class)->middleware('auth');
+Route::resource('groups', GroupController::class)->middleware('auth');
+
+Route::get('/dashboard', function () {
+    return view('dashboard');
+})->middleware(['auth'])->name('dashboard');
+
+require __DIR__.'/auth.php';

@@ -1,18 +1,16 @@
-@extends('layout')
+@extends('dashboard')
 
 @section('title', "$group->name")
 
-@section('css')
-{{-- Not css -> consider renaming section to head, etc. --}}
+{{-- Highly improper --}}
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
 <link id="custom-stylesheet" rel="stylesheet" href="{{ asset('css/show.css') }}">
-@endsection
 
 @section('content')
-<div class="text-center text-md-start d-flex flex-column justify-content-evenly text-wrap">
+<div class="text-center text-md-start d-flex flex-column justify-content-evenly text-wrap ps-md-5 pt-4">
     <div class="slide"><span class="label d-block h1 fw-bold">Group Name</span><span class="info">{{ $group->name }}</span></div>
     <div class="slide">
-        <div class="label h1 fw-bold">Profiles (Members)</div>
+        <div class="label h1 fw-bold mt-4">Profiles (Members)</div>
         @if($group->profiles->count() > 0)
             <ul class="list-unstyled d-flex flex-column align-items-center align-items-md-start">
                 @foreach($group->profiles as $profile)
@@ -23,7 +21,7 @@
                         <section id="{{ $profile->id }}" class="d-none p-3">
                             <div><span class="d-block h4 fw-bold">Phone</span><span>{{ $profile->phone_number }}</span></div>
                             <div><span class="d-block h4 fw-bold">Email</span><span>{{ $profile->email }}</span></div>
-                            <a class="btn go-to-btn mb-0 mt-2" href="{{ route('profiles.show', $profile->id ) }}">Go to Profile</a>
+                            <a class="btn go-to-btn bg-white mb-0 mt-2" href="{{ route('profiles.show', $profile->id ) }}">Go to Profile</a>
                         </section>
                     </li>
                 @endforeach
@@ -33,7 +31,4 @@
         @endif
     </div>
 </div>
-@endsection
-@section('js')
-    <script src="{{ asset('js/show.js') }}"></script>
 @endsection

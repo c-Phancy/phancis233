@@ -30,16 +30,14 @@
 
 @endphp
 
-@extends('layout')
+@extends('dashboard')
 
 @section('title', "$profile->first_name $profile->last_name")
 
-@section('css')
 <link id="custom-stylesheet" rel="stylesheet" href="{{ asset('css/show.css') }}">
-@endsection
 
 @section('content')
-<address class="text-center text-md-start d-flex flex-column justify-content-evenly text-wrap">
+<address class="text-center text-md-start d-flex flex-column justify-content-evenly text-wrap ps-md-5 gap-4 mt-4">
     <div class="slide"><span class="label d-block h1 fw-bold">Name</span><span class="info">{{ $profile->first_name }}
             {{ $profile->last_name }}</span></div>
     <div class="slide"><span class="label d-block h1 fw-bold">Email</span><span class="info">{{ $profile->email }}</span></div>
@@ -47,7 +45,7 @@
     <div class="slide">
         <div class="label h1 fw-bold">Social Media</div>
         @if($profile->handles->count() > 0)
-            <ul id="social-list" class="list-unstyled d-flex flex-column align-items-center align-items-md-start">
+            <ul id="social-list" class="list-unstyled d-flex flex-column align-items-center align-items-md-start mb-0">
                 @foreach($profile->handles->sortBy("social_name") as $handle)
                     <li class="info my-1"><span class="text-uppercase">{{ $handle->social_name }}</span> |
                         {{ $handle->name }}</li>
@@ -70,11 +68,7 @@
         @endif
     </div>
 </address>
-<div class="slide d-flex justify-content-center justify-content-md-start">
+<div class="slide d-flex justify-content-center justify-content-md-start ps-md-5">
     <a class="btn" id="link-edit"
     href="{{ route('profiles.edit', $profile->id ) }}">Edit Profile</a>
-@endsection
-
-@section('js')
-<script src="{{ asset('js/show.js') }}"></script>
 @endsection

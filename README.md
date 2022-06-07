@@ -119,3 +119,35 @@ Submission
 
 Push branch to Github
 Create a Pull Request and request me as a reviewer
+
+---
+
+Authentication Assignment
+Objectives
+
+Incorporate authentication into your Laravel application
+Understand how password encryption works
+Leveraging layouts to share navigation
+
+Specifications
+
+Many-to-many updates (if applicable)
+Using feedback from last assignment:
+Work in existing branch: many-to-many-assignment
+Make updates and fixes from feedback given
+Once you feel good about it then you can merge back into the main branch
+Make sure I can run `php artisan db:seed` over and over. I should have good data every time.
+Authentication
+You've watched authentication lectures
+Assuming your main branch is up to date, create a branch called: authentication-assignment
+Install and setup Laravel Breeze
+Assure the profiles and groups resources require authentication to access
+Update layouts so that all profiles and groups views use the layout that is offered by Breeze.
+You have some liberty here to customize the layout CSS, IF you have time. Otherwise, just use the defaults from Breeze.
+Make sure there are links to /profiles and /groups in the navigation
+For the logged in user, put a link to their profile in the upper-right hand drop down menu.
+
+Submission
+
+Push branch to Github
+Create a Pull Request and request me as a reviewer
