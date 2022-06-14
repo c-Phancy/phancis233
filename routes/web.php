@@ -1,8 +1,6 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\ProfileController;
-use App\Http\Controllers\GroupController;
 
 /*
 |--------------------------------------------------------------------------
@@ -15,15 +13,8 @@ use App\Http\Controllers\GroupController;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
+Route::get('/', function() {
+    return view('layouts.welcome');
 });
 
-Route::resource('profiles', ProfileController::class)->middleware('auth');
-Route::resource('groups', GroupController::class)->middleware('auth');
-
-Route::get('/dashboard', function () {
-    return view('dashboard');
-})->middleware(['auth'])->name('dashboard');
-
-require __DIR__.'/auth.php';
+Route::get('/profiles', \App\Http\Livewire\Profiles::class);

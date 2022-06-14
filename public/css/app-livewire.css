@@ -1,0 +1,80 @@
+:root {
+    --brown: rgb(68, 57, 57);
+}
+
+html * {
+    background-color: #bfd1f2;
+    color: var(--brown);
+}
+
+thead * {
+    background-color: #9db1d6;
+    color: var(--brown);
+}
+
+tbody tr td {
+    color: rgb(231, 240, 246);
+}
+
+tbody tr:nth-child(even) td {
+    color: var(--brown);
+}
+
+tbody tr:nth-child(even) {
+    background-color: rgb(204, 142, 142) !important;
+}
+
+tbody tr:nth-child(odd) {
+    background-color: rgb(113, 120, 162);
+}
+
+.pagination .page-link {
+    color: black;
+}
+
+.font-medium {
+    color: black;
+}
+
+input,
+select,
+option {
+    background-color: white;
+    border-color: var(--brown);
+    border-radius: 3pt !important;
+}
+
+input {
+    width: 300px;
+}
+
+select {
+    width: 150px !important;
+    padding: 5px 10px !important;
+    font-size: 16px;
+}
+
+.page-item.active .page-link {
+    background-color: #5270a3;
+    border-color: var(--brown);
+}
+
+.btn-delete {
+    background-color: rgb(229, 83, 83) !important;
+    color: white;
+}
+
+.btn-delete:hover {
+    box-shadow: 0 0 0.25rem red !important;
+    color: black !important;
+}
+
+.btn-store {
+    background-color: white;
+    color: var(--brown);
+}
+
+.btn-store:hover {
+    background-color: #afc9ff;
+    color: black !important;
+}

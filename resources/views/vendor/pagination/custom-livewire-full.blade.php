@@ -9,14 +9,14 @@
                     </li>
                 @else
                     <li class="page-item">
-                        <a class="page-link" href="{{ $paginator->previousPageUrl() }}" rel="prev">@lang('pagination.previous')</a>
+                        <a class="page-link" href="#" wire:click="setPage('{{ $paginator->previousPageURL() }}')" rel="prev">@lang('pagination.previous')</a>
                     </li>
                 @endif
 
                 {{-- Next Page Link --}}
                 @if ($paginator->hasMorePages())
                     <li class="page-item">
-                        <a class="page-link" href="{{ $paginator->nextPageUrl() }}" rel="next">@lang('pagination.next')</a>
+                        <a class="page-link" href="#" wire:click="setPage('{{ $paginator->nextPageURL() }}')" rel="next">@lang('pagination.next')</a>
                     </li>
                 @else
                     <li class="page-item disabled" aria-disabled="true">
@@ -27,7 +27,8 @@
         </div>
 
         <div class="d-none flex-column flex-sm-fill d-sm-flex align-items-sm-center justify-content-sm-between">
-            <div>
+            {{-- Too many problems with query counts / live search --}}
+            {{-- <div>
                 <p class="small text-muted">
                     {!! __('Showing') !!}
                     <span class="font-medium">{{ $paginator->firstItem() }}</span>
@@ -37,7 +38,7 @@
                     <span class="font-medium">{{ $paginator->total() }}</span>
                     {!! __('results') !!}
                 </p>
-            </div>
+            </div> --}}
 
             <div>
                 <ul class="pagination">
@@ -48,7 +49,7 @@
                         </li>
                     @else
                         <li class="page-item">
-                            <a class="page-link" href="{{ $paginator->previousPageUrl() }}" rel="prev" aria-label="@lang('pagination.previous')">&lsaquo;</a>
+                            <a class="page-link" href="#" wire:click="setPage('{{ $paginator->previousPageURL() }}')" rel="prev" aria-label="@lang('pagination.previous')">&lsaquo;</a>
                         </li>
                     @endif
 
@@ -65,7 +66,7 @@
                                 @if ($page == $paginator->currentPage())
                                     <li class="page-item active" aria-current="page"><span class="page-link">{{ $page }}</span></li>
                                 @else
-                                    <li class="page-item"><a class="page-link" href="{{ $url }}">{{ $page }}</a></li>
+                                    <li class="page-item"><a class="page-link" href="#" wire:click="setPage('{{ $url }}')">{{ $page }}</a></li>
                                 @endif
                             @endforeach
                         @endif
@@ -74,7 +75,7 @@
                     {{-- Next Page Link --}}
                     @if ($paginator->hasMorePages())
                         <li class="page-item">
-                            <a class="page-link" href="{{ $paginator->nextPageUrl() }}" rel="next" aria-label="@lang('pagination.next')">&rsaquo;</a>
+                            <a class="page-link" href="#" wire:click="setPage('{{ $paginator->nextPageURL() }}')" rel="next" aria-label="@lang('pagination.next')">&rsaquo;</a>
                         </li>
                     @else
                         <li class="page-item disabled" aria-disabled="true" aria-label="@lang('pagination.next')">
