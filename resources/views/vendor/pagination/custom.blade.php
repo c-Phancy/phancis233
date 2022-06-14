@@ -1,14 +1,5 @@
 @if ($paginator->hasPages())
     <ul class="pagination mb-0">
-       
-        @if ($paginator->onFirstPage())
-            <li class="disabled page-item button"><span class="page-link">← Previous</span></li>
-        @else
-            <li class="page-item button"><a class="page-link" href="{{ $paginator->previousPageUrl() }}" rel="prev">← Previous</a></li>
-        @endif
-
-
-      
         @foreach ($elements as $element)
         {{-- Consider using a dropdown to choose a page number
         so that you don't have to navigate in intervals of 5
@@ -28,13 +19,5 @@
                 @endforeach
             @endif
         @endforeach
-
-
-        
-        @if ($paginator->hasMorePages())
-            <li class="page-item button"><a class="page-link" href="{{ $paginator->nextPageUrl() }}" rel="next">Next →</a></li>
-        @else
-            <li class="page-item disabled button"><span class="page-link">Next →</span></li>
-        @endif
     </ul>
 @endif 

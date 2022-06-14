@@ -119,3 +119,76 @@ Submission
 
 Push branch to Github
 Create a Pull Request and request me as a reviewer
+
+---
+
+Authentication Assignment
+Objectives
+
+Incorporate authentication into your Laravel application
+Understand how password encryption works
+Leveraging layouts to share navigation
+
+Specifications
+
+Many-to-many updates (if applicable)
+Using feedback from last assignment:
+Work in existing branch: many-to-many-assignment
+Make updates and fixes from feedback given
+Once you feel good about it then you can merge back into the main branch
+Make sure I can run `php artisan db:seed` over and over. I should have good data every time.
+Authentication
+You've watched authentication lectures
+Assuming your main branch is up to date, create a branch called: authentication-assignment
+Install and setup Laravel Breeze
+Assure the profiles and groups resources require authentication to access
+Update layouts so that all profiles and groups views use the layout that is offered by Breeze.
+You have some liberty here to customize the layout CSS, IF you have time. Otherwise, just use the defaults from Breeze.
+Make sure there are links to /profiles and /groups in the navigation
+For the logged in user, put a link to their profile in the upper-right hand drop down menu.
+
+Submission
+
+Push branch to Github
+Create a Pull Request and request me as a reviewer
+
+---
+
+Livewire Assignment
+Objectives
+Understand JavaScript ecosystem
+Livewire basics
+Write interactive, SPA-like applications writing minimal/no JavaScript
+Giving users better experiences
+Requirements
+Watch all provided Livewire lectures
+Create new git branch: livewire-assignment
+All functionality must be Livewire-driven! 
+Using Livewire components only (not Controllers)
+Create a new Livewire route and Livewire component and view for profiles
+You will display a table of all profiles
+Show fields: first name, last name, email, phone number
+No Create/Add, Edit, or Delete functionality
+One search text field that will be used to search subtext in first name or last name
+Sorting - provide ascending and descending sort on first name, last name, and email
+Pagination
+Research how to do pagination in Livewire 
+Paginated links above and below profiles
+default to 10 profiles per page
+provide a dropdown select list that lets user select how many profiles to show per page: 10, 25, 50, All
+You may need to seed more profiles to test this functionality
+Submission
+
+Push branch to Github
+Create a Pull Request
+Request kblake as a reviewer
+ 
+
+Extra Credit Opportunities
+You can select one or more of these items. It's not all or nothing. So do what you can! When submitting, let me know which extra credit items to look for. 
+
+Using Livewire only:
+
+Add Create profile functionality
+Add Edit profile functionality
+Add Delete profile functionality

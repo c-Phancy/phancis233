@@ -1,0 +1,26 @@
+.dark-background {
+    background-color: rgb(17 24 39);
+}
+
+input.input-shadow {
+    color: #212529;
+    box-shadow: 5px 4px #72ac9c !important;
+    opacity: 80%;
+}
+
+input.input-shadow:focus {
+    border-color: #428471;
+}
+
+.input-background:checked:hover, .input-background:checked {
+    background-color: #ace1d2 !important;
+}
+
+.text-hover:hover {
+    color: #72ac9c;
+    transition-duration: 250ms;
+}
+
+.button-hover:hover {
+    background-color: #72ac9c;
+}

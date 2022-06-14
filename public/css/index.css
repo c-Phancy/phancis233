@@ -18,16 +18,8 @@ body {
     background-color: black;
 }
 
-main {
-    padding-bottom: var(--footer-height);
-}
-
 body *:not(.navbar *) {
     text-transform: uppercase;
-}
-
-main * {
-    color: white !important;
 }
 
 /***** Switch Button *****/
@@ -129,17 +121,17 @@ main * {
 }
 
 .profile-edit-link {
-    border-color: var(--edit-color);
+    border-color: var(--edit-color) !important;
     box-shadow: 0 0 10px #7695cd;
 }
 
 .profile-view-link {
-    border-color: var(--view-color);
+    border-color: var(--view-color) !important;
     box-shadow: 0 0 10px #b88ed4;
 }
 
 .profile-delete-link {
-    border-color: var(--delete-color);
+    border-color: var(--delete-color) !important;
     box-shadow: 0 0 10px #fca5a3;
 }
 

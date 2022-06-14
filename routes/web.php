@@ -1,8 +1,6 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\ProfileController;
-use App\Http\Controllers\GroupController;
 
 /*
 |--------------------------------------------------------------------------
@@ -15,9 +13,8 @@ use App\Http\Controllers\GroupController;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
+Route::get('/', function() {
+    return view('layouts.welcome');
 });
 
-Route::resource('profiles', ProfileController::class);
-Route::resource('groups', GroupController::class);
+Route::get('/profiles', \App\Http\Livewire\Profiles::class);

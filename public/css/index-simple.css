@@ -3,7 +3,6 @@ html {
 }
 
 .profile-wrapper {
-    padding: 3vw 0 3vw 2vw;
     position: relative;
 }
 
@@ -46,6 +45,20 @@ html {
     margin-right: calc(10vw / 3);
 }
 
+.profile-link-group * {
+    color: white !important;
+}
+
 .link-a {
         font-size: clamp(10px, 4vw, 24px) !important;
+}
+
+.link-a:hover, .link-a:focus {
+    background-color: white !important;
+    color: black !important;
+}
+
+.profile-link-group-a button.profile-link {
+    border-radius: 0 !important;
+    margin-right: 0 !important;
 }
