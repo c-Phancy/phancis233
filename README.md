@@ -151,3 +151,35 @@ Submission
 
 Push branch to Github
 Create a Pull Request and request me as a reviewer
+
+---
+
+Extra Credit Assignment
+
+Specifications
+
+Create a branch called: extra-credit-assignment
+From the profiles index page, make the first name, last name, email column headers clickable so that when clicked will sort the musicians in ascending order by that field.
+The column header for first name, when clicked, will sort them in ascending order by first name.
+The column header for last name, when clicked, will sort them in ascending order by last name.
+The column header for email, when clicked, will sort them in ascending order by email.
+This is a research requirement. Something you'll have to do plenty of in the real world.
+Here some hints:
+Research "query string"
+How do you add them to the route helper in a blade view?
+How to access the query string value, using the $request object, in the controller?
+Use the query string values to build an Eloquent Model query that sorts values returned.
+Notes:
+You cannot use JavaScript to do this
+You cannot use a PHP or Laravel library to do this
+You get to write your own server-side code to handle this
+Demo: first and last name ascending sort. Not shown but email would work the same way.
+
+Submission
+
+Push branch to Github
+Create a Pull Request and request me as a reviewer
+
+Extra Credit Points: 50 total.
+
+If you also incorporate descending sort then you'll get 65 extra credit points total.
