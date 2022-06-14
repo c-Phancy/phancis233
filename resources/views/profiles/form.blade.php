@@ -18,33 +18,35 @@
     }
 @endphp
 
-<div class="d-flex flex-column justify-content-evenly mx-auto form pt-4">
+<link rel=stylesheet href={{ asset('css/form.css') }}>
+
+<div class="d-flex flex-column justify-content-evenly ms-md-0 mx-auto form pt-4">
     <div class="d-flex justify-content-evenly flex-column align-items-center align-items-md-start form-group">
         <label class="form-label h1 d-block d-md-inline" for="first-name">First Name</label>
         <input class="form-control" type="text" name="first-name" id="first-name" placeholder="First Name"
             value="{{ $profile->first_name ?? old('first-name') }}">
         <div class="bg-light form-text text-start small m-0 d-none"></div>
     </div>
-    <div class="d-flex justify-content-evenly flex-column align-items-center align-items-md-start form-group">
+    <div class="d-flex justify-content-evenly flex-column align-items-center align-items-md-start form-group pt-4">
         <label class="form-label h1 d-block d-md-inline" for="last-name">Last Name</label>
         <input class="form-control" type="text" name="last-name" id="last-name" placeholder="Last Name"
             value="{{ $profile->last_name ?? old('last-name') }}">
         <div class="bg-light form-text text-start small m-0 d-none"></div>
     </div>
-    <div class="d-flex justify-content-evenly flex-column align-items-center align-items-md-start form-group">
+    <div class="d-flex justify-content-evenly flex-column align-items-center align-items-md-start form-group pt-4">
         <label for="email" class="d-block form-label h1 d-md-inline">Email</label>
         <input type="text" class="form-control" id="email" name="email" placeholder="Email" aria-label="Email"
             value="{{ $profile->email ?? old('email') }}">
         <div class="bg-light form-text text-start small m-0 d-none"></div>
     </div>
 </div>
-<div class="d-flex justify-content-evenly flex-column align-items-center align-items-md-start form-group">
+<div class="d-flex justify-content-evenly flex-column align-items-center align-items-md-start form-group pt-4">
     <label class="form-label h1 d-block d-md-inline" for="phone">Phone Number</label>
     <input class="form-control" type="number" name="phone" id="phone" placeholder="Numbers Only"
         value="{{ $profile->phone_number ?? old('phone') }}">
     <div class="bg-light form-text text-start small m-0 d-none"></div>
 </div>
-<div class="mb-5">
+<div class="mb-5 pt-4">
     <fieldset id="social-media-fields">
         <legend class="form-label h1 d-block d-md-inline">Social Media</legend>
         @foreach($accounts as $i => $account)

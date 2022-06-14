@@ -2,35 +2,42 @@ const formGroup = document.querySelectorAll(".form-group");
 const helperText = document.querySelectorAll(".form-text");
 
 formGroup.forEach((group, index) => {
-    [].slice
-        .call(group.querySelectorAll("input"))
-        .forEach((input, innerIndex) => {
-            // Covers old filled values
-            input.addEventListener("focus", () => {
-                if (group.querySelectorAll("input")) {
-                        if (input.value) {
-                            input.dispatchEvent(new Event("keyup"));
-                        }
-                    }
-            });
-            input.addEventListener("keyup", () => {
-                    if (input.value) {
-                        helperText[index].classList.remove("d-none");
-                    } else {
-                        helperText[index].classList.add("d-none");
-                    }
-                    helperText[index].innerHTML = input.value;
-            });
-            // Should helper text divs be invisible when the input is not in focus? Permanently visible if there is a value?
-            input.addEventListener("focusout", () => {
-                helperText[index].classList.add("d-none");
-            });
-            input.addEventListener("focus", () => {
+    [].slice.call(group.querySelectorAll("input")).forEach((input) => {
+        // Covers old filled values
+        input.addEventListener("focus", () => {
+            if (group.querySelectorAll("input")) {
                 if (input.value) {
-                    helperText[index].classList.remove("d-none");
+                    input.dispatchEvent(new Event("keyup"));
                 }
-            });
+            }
         });
+        input.addEventListener("keyup", () => {
+            if (input.value) {
+                helperText[index].classList.remove("d-none");
+                input.classList.remove("input-group-single");
+                input.style.borderTopRightRadius = "0.25rem";
+                if (group.querySelector(".input-group-text"))
+                    group
+                        .querySelector(".input-group-text")
+                        .classList.add("expanded-helper");
+            } else {
+                input.dispatchEvent(new Event("focusout"));
+            }
+            helperText[index].innerHTML = input.value;
+        });
+        // Should helper text divs be invisible when the input is not in focus? Permanently visible if there is a value?
+        input.addEventListener("focusout", () => {
+            helperText[index].classList.add("d-none");
+            input.classList.add("input-group-single");
+            if (group.querySelector(".input-group-text"))
+                group
+                    .querySelector(".input-group-text")
+                    .classList.remove("expanded-helper");
+        });
+        input.addEventListener("focus", () => {
+            input.dispatchEvent(new Event("keyup"));
+        });
+    });
 });
 
 const watchDisplayChange = (element, callback) => {
@@ -68,11 +75,11 @@ helperText.forEach((helperBlock, index) => {
 
 const fieldset = document.getElementById("social-media-fields");
 
-fieldset.querySelectorAll(".field-container").forEach(container => {
+fieldset.querySelectorAll(".field-container").forEach((container) => {
     container.querySelector("button").addEventListener("click", () => {
         container.remove();
-    })
-})
+    });
+});
 
 document.getElementById("account-add").addEventListener("click", () => {
     const id = fieldset.querySelectorAll(".field-container").length + 1;
@@ -89,7 +96,7 @@ document.getElementById("account-add").addEventListener("click", () => {
                 <div class="bg-light form-text text-start small m-0 d-none"></div>
                                 </div>
                 <div class="input-group form-group mt-1 mb-3">
-                    <span class="input-group-text">@</span>
+                    <span class="input-group-text">${id - 1} | @</span>
                     <input type="text" class="form-control input-group-single" name="handle[` +
         id +
         `]"
@@ -105,15 +112,17 @@ document.getElementById("account-add").addEventListener("click", () => {
         input.addEventListener("keyup", () => {
             if (input.value) {
                 inputHelper.classList.remove("d-none");
-                                input.classList.remove("input-group-single");
-                                input.style.borderTopRightRadius = "0.25rem";
-                                group.querySelector(
-                                    ".input-group-text"
-                                ).style.borderBottomLeftRadius = "0";
+                input.classList.remove("input-group-single");
+                input.style.borderTopRightRadius = "0.25rem";
+                group
+                    .querySelector(".input-group-text")
+                    .classList.add("expanded-helper");
             } else {
                 inputHelper.classList.add("d-none");
                 input.classList.add("input-group-single");
-                group.querySelector(".input-group-text").style.borderBottomLeftRadius = "0.25rem";
+                group
+                    .querySelector(".input-group-text")
+                    .classList.add("expanded-helper");
             }
             inputHelper.innerHTML = input.value;
         });
@@ -124,21 +133,27 @@ document.getElementById("account-add").addEventListener("click", () => {
         });
         input.addEventListener("focusout", () => {
             inputHelper.classList.add("d-none");
-                            input.classList.add("input-group-single");
-                            group.querySelector(
-                                ".input-group-text"
-                            ).style.borderBottomLeftRadius = "0.25rem";
+            input.classList.add("input-group-single");
+            group
+                .querySelector(".input-group-text")
+                .classList.remove("expanded-helper");
         });
         input.addEventListener("focus", () => {
             if (input.value) {
                 inputHelper.classList.remove("d-none");
+                group
+                    .querySelector(".input-group-text")
+                    .classList.remove("expanded-helper");
             }
         });
     });
     const parent = fieldset.lastChild;
-    fieldset.lastChild.querySelector(".form-group").querySelector("button").addEventListener("click", () => {
-        parent.remove();
-    })
+    fieldset.lastChild
+        .querySelector(".form-group")
+        .querySelector("button")
+        .addEventListener("click", () => {
+            parent.remove();
+        });
 });
 
 document.getElementById("submit-button").addEventListener("click", () => {
@@ -156,5 +171,7 @@ document.getElementById("submit-button").addEventListener("click", () => {
             container.remove();
         }
     });
-    fieldset.querySelectorAll(".field-container").forEach
+    fieldset.querySelectorAll(".field-container").forEach;
 });
+
+// TODO: Add a click listener for the handle span to automatically adjust the id numbers if they are closed out of order (ex. Make box 3 become 2 if box 2 is closed)

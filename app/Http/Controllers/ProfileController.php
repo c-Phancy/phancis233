@@ -12,9 +12,12 @@ class ProfileController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        $profiles = \App\Models\Profile::paginate(10);
+        $sortBy = $request->get("sortBy") ?? "id";
+        $direction = $request->get("direction") ?? "asc";
+
+        $profiles = \App\Models\Profile::orderBy($sortBy, $direction)->paginate(10);
         return view('profiles.index', ['profiles' => $profiles]);
     }
 
